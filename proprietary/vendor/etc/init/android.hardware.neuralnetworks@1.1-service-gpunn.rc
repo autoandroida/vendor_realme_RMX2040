@@ -1,0 +1,15 @@
+service neuralnetworks_hal_service_gpunn /vendor/bin/hw/android.hardware.neuralnetworks@1.1-service-gpunn
+#ifdef ODM_WT_EDIT
+# Qun.Lin@ODM_WT.AD.Display,bugId 2685066,2020/02/12,merge solution from MTK
+    interface android.hardware.neuralnetworks@1.1::IDevice gpunn
+    disabled
+#endif /*ODM_WT_EDIT*/
+    class hal
+    user system
+    group system
+
+#ifdef ODM_WT_EDIT
+# Qun.Lin@ODM_WT.AD.Display,bugId 2651321,2020/01/17,merge solution from MTK
+on property:ro.sys.neuropilot=1
+   start neuralnetworks_hal_service_gpunn
+#endif /*ODM_WT_EDIT*/
